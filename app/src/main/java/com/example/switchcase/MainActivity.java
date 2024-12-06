@@ -16,9 +16,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText number;
-    Button button;
-    TextView textView;
+    EditText number;    //EditText nesnesi oluşturuyoruz.
+    Button button;      //Button nesnesi oluşturuyoruz.
+    TextView textView;  //TextView nesnesi oluşturuyoruz.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
 
 
-            number = findViewById(R.id.editTextNumber_Ay);
-            button = findViewById(R.id.button_Onayla);
-            textView = findViewById(R.id.textView);
+            number = findViewById(R.id.editTextNumber_Ay);     // Layout'ta oluşturduğumuz EditText nesnesini id'sine göre bulup burada oluşturduğumuz nesneye atıyoruz.
+            button = findViewById(R.id.button_Onayla);         // Layout'ta oluşturduğumuz Button nesnesini id'sine göre bulup burada oluşturduğumuz nesneye atıyoruz.
+            textView = findViewById(R.id.textView);            // Layout'ta oluşturduğumuz TextView nesnesini id'sine göre bulup burada oluşturduğumuz nesneye atıyoruz.
 
 
             return insets;
@@ -41,14 +41,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Burada layoutta oluşturduğumuz butonun onclick özelliğine atadığımız metodu tanımlıyoruz.
     public void Onayla(View view) {
-        int ay = Integer.parseInt(number.getText().toString());
-        String ayAdi = "";
+        int ay = Integer.parseInt(number.getText().toString()); //Layout'taki EditText'ten (kullanıcıdan) gelen sayıyı aldık. Integere çevirdik ve ay değişkenine atadık.
+        String ayAdi = "";  // Boş bir string değişkeni oluşturuyoruz.
         number.setText("");
-        switch (ay) {
-            case 1:
-                ayAdi = "Ocak";
-                break;
+        switch (ay) {                        // Gelen değeri switch case ile kontrol ediyoruz.
+            case 1:                          // Gelen değer 1 ise
+                ayAdi = "Ocak";              // Oluşturduğumuz string değişkene ocak yazıyoruz.
+                break;                       // Kodumuzu bitiriyoruz.
             case 2:
                 ayAdi = "Şubat";
                 break;
@@ -82,11 +83,11 @@ public class MainActivity extends AppCompatActivity {
             case 12:
                 ayAdi = "Aralık";
                 break;
-            default:
-                ayAdi = "Hatalı Giriş";
+            default:                               // Switch case dışında bir değer girilirse default çalışır.
+                ayAdi = "Hatalı Giriş";            // TextView'e hata mesajı yazıyoruz.
                 break;
         }
-        textView.setText(ayAdi);
+        textView.setText(ayAdi);                   // Layout'taki TextView'e ayAdi değişkenini yazıyoruz.
 
 
     }
